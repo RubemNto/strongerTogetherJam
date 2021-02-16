@@ -14,22 +14,22 @@ public class partyMember : MonoBehaviour
     {
         pM = GameObject.Find("partyManager").GetComponent<partyManager>();
         eM = GameObject.Find("enemiesManager").GetComponent<enemiesManager>();        
-        float[] distances = new float[eM.enemiesOnScreen.Count];
-        for (int i = 0; i < eM.enemiesOnScreen.Count; i++)
-        {
-            distances[i] = Vector2.Distance(transform.position,eM.enemiesOnScreen[i].transform.position);                        
-        }
-        float[] tempDistances = new float[distances.Length];
-        tempDistances = distances;
-        Array.Sort(distances);
-        for (int i = 0; i < eM.enemiesOnScreen.Count; i++)
-        {
-            if(distances[0] == tempDistances[i])
-            {
-                targetEnemy = eM.enemiesOnScreen[i];
-                break;
-            }
-        }
+        // float[] distances = new float[eM.enemiesOnScreen.Count];
+        // for (int i = 0; i < eM.enemiesOnScreen.Count; i++)
+        // {
+        //     distances[i] = Vector2.Distance(transform.position,eM.enemiesOnScreen[i].transform.position);                        
+        // }
+        // float[] tempDistances = new float[distances.Length];
+        // tempDistances = distances;
+        // Array.Sort(distances);
+        // for (int i = 0; i < eM.enemiesOnScreen.Count; i++)
+        // {
+        //     if(distances[0] == tempDistances[i])
+        //     {
+        //         targetEnemy = eM.enemiesOnScreen[i];
+        //         break;
+        //     }
+        // }
     }
     void Update()
     {
@@ -38,34 +38,37 @@ public class partyMember : MonoBehaviour
             transform.position = Vector2.MoveTowards(transform.position,targetEnemy.transform.position,moveSpeed*Time.deltaTime);
         }else if(targetEnemy == null && eM.enemiesOnScreen.Count != 0)
         {
-            do
-            {
+            // Debug.Log("Find Enemy");
                 float[] distances = new float[eM.enemiesOnScreen.Count];
                 for (int i = 0; i < eM.enemiesOnScreen.Count; i++)
                 {
-                    distances[i] = Vector2.Distance(transform.position,eM.enemiesOnScreen[i].transform.position);                        
+                    distances[i] = Vector2.Distance(transform.position,eM.enemiesOnScreen[i].transform.position);
+                    Debug.Log(distances[i].ToString());                        
                 }
                 float[] tempDistances = new float[distances.Length];
                 tempDistances = distances;
                 Array.Sort(distances);
-                for (int i = 0; i < eM.enemiesOnScreen.Count; i++)
+                foreach (float distance in tempDistances)
                 {
-                    if(distances[0] == tempDistances[i])
-                    {
-                        targetEnemy = eM.enemiesOnScreen[i];
-                        break;
-                    }
+                    Debug.Log(distance.ToString());
                 }
+            //     for (int i = 0; i < eM.enemiesOnScreen.Count; i++)
+            //     {
+            //         if(distances[0] == tempDistances[i])
+            //         {
+            //             targetEnemy = eM.enemiesOnScreen[i];
+            //             break;
+            //         }
+            //     }
 
-                for (int i = 0; i < pM.instantiatedPartyMember.Count; i++)
-                {
-                    if(targetEnemy == pM.instantiatedPartyMember[i].GetComponent<partyMember>().targetEnemy)
-                    {
-                        targetEnemy = null;
-                        break;
-                    }
-                }
-            }while(targetEnemy == null);
+            //     for (int i = 0; i < pM.instantiatedPartyMember.Count; i++)
+            //     {
+            //         if(pM.instantiatedPartyMember[i] != this.gameObject && targetEnemy == pM.instantiatedPartyMember[i].GetComponent<partyMember>().targetEnemy)
+            //         {
+            //             targetEnemy = null;
+            //             break;
+            //         }
+            //     }
         }
     }    
 }
