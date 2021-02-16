@@ -10,9 +10,10 @@ GameObject:
   m_Component:
   - component: {fileID: 7990748607101430551}
   - component: {fileID: 2256864808068955903}
-  - component: {fileID: -1377887767503097010}
   - component: {fileID: 7736796921109350591}
   - component: {fileID: 985962734389945580}
+  - component: {fileID: -9069104771723837443}
+  - component: {fileID: -4246748357872688302}
   m_Layer: 0
   m_Name: sheeptab
   m_TagString: Untagged
@@ -84,22 +85,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &-1377887767503097010
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7710286179077555565}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 737cc9560299580459394a49ef3b9801, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  eM: {fileID: 0}
-  targetEnemy: {fileID: 0}
-  pM: {fileID: 0}
-  moveSpeed: 2
 --- !u!58 &7736796921109350591
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -137,3 +122,31 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!114 &-9069104771723837443
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7710286179077555565}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5c1bf5a884c90b14f9988b98e4831ee4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  enemyTarget: {fileID: 0}
+  enemiesManager: {fileID: 0}
+  partyManager: {fileID: 0}
+--- !u!114 &-4246748357872688302
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7710286179077555565}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a7bbb70c6c3fb494e9e27966a1ced1a4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  moveSpeed: 2
