@@ -14,22 +14,22 @@ public class partyMember : MonoBehaviour
     {
         pM = GameObject.Find("partyManager").GetComponent<partyManager>();
         eM = GameObject.Find("enemiesManager").GetComponent<enemiesManager>();        
-        float[] distances = new float[eM.enemiesOnScreen.Count];
-        for (int i = 0; i < eM.enemiesOnScreen.Count; i++)
-        {
-            distances[i] = Vector2.Distance(transform.position,eM.enemiesOnScreen[i].transform.position);                        
-        }
-        float[] tempDistances = new float[distances.Length];
-        tempDistances = distances;
-        Array.Sort(distances);
-        for (int i = 0; i < eM.enemiesOnScreen.Count; i++)
-        {
-            if(distances[0] == tempDistances[i])
-            {
-                targetEnemy = eM.enemiesOnScreen[i];
-                break;
-            }
-        }
+        // float[] distances = new float[eM.enemiesOnScreen.Count];
+        // for (int i = 0; i < eM.enemiesOnScreen.Count; i++)
+        // {
+        //     distances[i] = Vector2.Distance(transform.position,eM.enemiesOnScreen[i].transform.position);                        
+        // }
+        // float[] tempDistances = new float[distances.Length];
+        // tempDistances = distances;
+        // Array.Sort(distances);
+        // for (int i = 0; i < eM.enemiesOnScreen.Count; i++)
+        // {
+        //     if(distances[0] == tempDistances[i])
+        //     {
+        //         targetEnemy = eM.enemiesOnScreen[i];
+        //         break;
+        //     }
+        // }
     }
     void Update()
     {
