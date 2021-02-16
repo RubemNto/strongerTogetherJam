@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Card
   - spawnPosition
+  - enemy
   layers:
   - Default
   - TransparentFX

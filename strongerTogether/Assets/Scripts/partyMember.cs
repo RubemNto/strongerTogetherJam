@@ -43,23 +43,20 @@ public class partyMember : MonoBehaviour
                 for (int i = 0; i < eM.enemiesOnScreen.Count; i++)
                 {
                     distances[i] = Vector2.Distance(transform.position,eM.enemiesOnScreen[i].transform.position);
-                    Debug.Log(distances[i].ToString());                        
+                    //Debug.Log(distances[i].ToString());                        
                 }
                 float[] tempDistances = new float[distances.Length];
                 tempDistances = distances;
                 Array.Sort(distances);
-                foreach (float distance in tempDistances)
+                for (int i = 0; i < eM.enemiesOnScreen.Count; i++)
                 {
-                    Debug.Log(distance.ToString());
+                    if(distances[0] == tempDistances[i])
+                    {
+                        targetEnemy = eM.enemiesOnScreen[i];
+                        break;
+                    }
                 }
-            //     for (int i = 0; i < eM.enemiesOnScreen.Count; i++)
-            //     {
-            //         if(distances[0] == tempDistances[i])
-            //         {
-            //             targetEnemy = eM.enemiesOnScreen[i];
-            //             break;
-            //         }
-            //     }
+                //Debug.Log(targetEnemy.transform.name);
 
             //     for (int i = 0; i < pM.instantiatedPartyMember.Count; i++)
             //     {
@@ -70,5 +67,13 @@ public class partyMember : MonoBehaviour
             //         }
             //     }
         }
+    }
+
+    void OnTriggerEnter2D(Collider2D other) 
+    {
+        if(other.gameObject.tag == "enemy")
+        {
+            Destroy(other.gameObject);
+        }                
     }    
 }
