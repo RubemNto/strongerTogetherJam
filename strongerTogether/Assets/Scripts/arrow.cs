@@ -19,6 +19,7 @@ public class arrow : MonoBehaviour
         if(other.gameObject.tag == "enemy")
         {
             Destroy(other.gameObject);
+            Destroy(gameObject);
         }        
     }
 

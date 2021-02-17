@@ -21,6 +21,14 @@ public class enemiesManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        for (int i = 0; i < enemiesOnScreen.Count; i++)
+        {
+            if(enemiesOnScreen[i] == null)
+            {
+                enemiesOnScreen.RemoveAt(i);
+            }
+        }
+        
         if(EnemiesOnScreen < maxEnemiesOnScreen)
         {
             if(spawnTime <= 0)
