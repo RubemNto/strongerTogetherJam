@@ -20,19 +20,22 @@ public class tankAlly : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        float distanceToTarget = Vector2.Distance(transform.position,ally.enemyTarget.transform.position);
+        if(ally.enemyTarget != null)
+        {
+            float distanceToTarget = Vector2.Distance(transform.position,ally.enemyTarget.transform.position);
 
-        if(distanceToTarget > attackDistance)
-        {
-            if(ally.enemyTarget != null)
+            if(distanceToTarget > attackDistance)
             {
-                transform.position = Vector2.MoveTowards(transform.position,ally.enemyTarget.transform.position,moveSpeed*Time.deltaTime);
+                if(ally.enemyTarget != null)
+                {
+                    transform.position = Vector2.MoveTowards(transform.position,ally.enemyTarget.transform.position,moveSpeed*Time.deltaTime);
+                }
             }
-        }
-        else
-        {
-            //attack
-            Attack();
+            else
+            {
+                //attack
+                Attack();
+            }
         }
     }
 

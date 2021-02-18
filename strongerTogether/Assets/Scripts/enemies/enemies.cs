@@ -74,7 +74,7 @@ public class enemies : MonoBehaviour
         }
         else if(partyManager.instantiatedPartyMember.Count == 0)
         {
-            player = GameObject.Find("Player");
+            player = GameObject.Find("PlayerMesh");
         } 
     }
 

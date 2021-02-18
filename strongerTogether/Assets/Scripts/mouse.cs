@@ -31,7 +31,7 @@ public class mouse : MonoBehaviour
             {
                 if(Input.GetKeyDown(KeyCode.Mouse0))
                 {
-                    GameObject instantiatedPartyMember = Instantiate(GetComponent<GameManager>().selectedPartyMember,hit.transform.position,hit.transform.rotation);
+                    GameObject instantiatedPartyMember = Instantiate(GetComponent<GameManager>().selectedPartyMember,hit.transform.position + new Vector3(0,1,0),hit.transform.rotation);
                     Destroy(GetComponent<GameManager>().card);
                     GetComponent<GameManager>().selectedPartyMember = null;
                     GetComponent<GameManager>().card = null;

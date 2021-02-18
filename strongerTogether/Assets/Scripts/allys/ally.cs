@@ -19,7 +19,7 @@ public class ally : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(enemyTarget == null)
+        if(enemyTarget == null && enemiesManager.enemiesOnScreen.Count != 0)
         {            
             List<GameObject> allyTargets = new List<GameObject>();
             List<GameObject> availableTargets = new List<GameObject>();
@@ -65,6 +65,9 @@ public class ally : MonoBehaviour
                     break;
                 }
             }
+        }else if(enemiesManager.enemiesOnScreen.Count == 0)
+        {
+            enemyTarget = null;
         }
         
     }

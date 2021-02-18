@@ -7,6 +7,9 @@ public class GameManager : MonoBehaviour
 
     public GameObject selectedPartyMember;
     public GameObject card;
+    public int playerHealth;
+    public int mana;
+
     // Start is called before the first frame update
     void Start()
     {

@@ -5,16 +5,16 @@ using UnityEngine;
 public class partyManager : MonoBehaviour
 {
     public List<GameObject> instantiatedPartyMember = new List<GameObject>();
-    private float distanceToEnemy;
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
 
     // Update is called once per frame
     void Update()
     {
-        
+        for (int i = 0; i < instantiatedPartyMember.Count; i++)
+        {
+            if(instantiatedPartyMember[i] == null)
+            {
+                instantiatedPartyMember.RemoveAt(i);
+            }
+        }        
     }
 }

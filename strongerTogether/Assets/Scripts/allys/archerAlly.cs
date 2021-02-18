@@ -31,6 +31,10 @@ public class archerAlly : MonoBehaviour
             {
                 timeOfShot-=Time.deltaTime;
             }
+        }
+        else
+        {
+            timeOfShot = 0;
         }        
     }
     public void shootArrow()
