@@ -2,8 +2,12 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class rangeAlly : MonoBehaviour
+public class player : MonoBehaviour
 {
+    public float health = 100;
+    public float damage = 20;
+    public GameObject target;
+
     // Start is called before the first frame update
     void Start()
     {

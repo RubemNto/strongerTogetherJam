@@ -18,7 +18,7 @@ public class arrow : MonoBehaviour
     {
         if(other.gameObject.tag == "enemy")
         {
-            Destroy(other.gameObject);
+            target.GetComponent<enemies>().TakeDamage(damage);
             Destroy(gameObject);
         }        
     }

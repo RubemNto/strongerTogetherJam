@@ -157,7 +157,7 @@ MonoBehaviour:
   - {fileID: 1380037844}
   - {fileID: 1773237503}
   enemiesOnScreen: []
-  maxEnemiesOnScreen: 5
+  maxEnemiesOnScreen: 3
   timeToSpawn: 2
 --- !u!4 &80767092
 Transform:

@@ -5,6 +5,7 @@ using System;
 
 public class ally : MonoBehaviour
 {
+    public float health;
     public GameObject enemyTarget = null;
     public enemiesManager enemiesManager;
     public partyManager partyManager;
@@ -67,4 +68,12 @@ public class ally : MonoBehaviour
         }
         
     }
+    public void TakeDamage(float damageIntake)
+    {
+        health-=damageIntake;
+        if(health<=0)
+        {
+            Destroy(gameObject);
+        }
+    } 
 }

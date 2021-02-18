@@ -7,7 +7,7 @@ public class enemies : MonoBehaviour
 {
     public GameObject player;
     public float moveSpeed;
-    public float damage;
+    public float health;
     private enemiesManager enemiesManager;
     public partyManager partyManager;
     // Start is called before the first frame update
@@ -83,6 +83,15 @@ public class enemies : MonoBehaviour
         if(other.gameObject.tag == "ally")
         {
             moveSpeed = 0;
+        }
+    }
+
+    public void TakeDamage(float damageIntake)
+    {
+        health -= damageIntake;
+        if(health <= 0)
+        {
+            Destroy(gameObject);
         }
     }
 }
