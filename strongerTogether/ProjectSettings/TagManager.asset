@@ -8,6 +8,7 @@ TagManager:
   - spawnPosition
   - enemy
   - ally
+  - background
   layers:
   - Default
   - TransparentFX

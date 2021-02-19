@@ -9,16 +9,40 @@ public class GameManager : MonoBehaviour
     public GameObject card;
     public int playerHealth;
     public int mana;
+    public GameObject middle;
+    public GameObject[] ground;
+    public int middleIndex = 0; 
 
-    // Start is called before the first frame update
-    void Start()
+    // void Update() {
+    //     foreach (GameObject Ground in ground)
+    //     {
+    //         if(Ground.transform.name == "ground ("+middleIndex.ToString()+")")
+    //         {
+    //             middle = Ground;
+    //             break;
+    //         }        
+    //     }
+    // }
+    public void ChangeMiddleIndex()
     {
-        
-    }
+        if(middleIndex == 2)
+        {
+            middleIndex = 1;
+        }else if(middleIndex == 1)
+        {
+            middleIndex = 3;
+        }else if(middleIndex == 3)
+        {
+            middleIndex = 2;
+        }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
+        foreach (GameObject Ground in ground)
+        {
+            if(Ground.transform.name == "ground ("+middleIndex.ToString()+")")
+            {
+                middle = Ground;
+                break;
+            }        
+        }
     }
 }
