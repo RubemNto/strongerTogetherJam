@@ -7,6 +7,7 @@ public class Cards : MonoBehaviour
 
     public GameObject partyMember;
     public GameManager gM;
+    public int price;
     // Start is called before the first frame update
     void Start()
     {
@@ -23,5 +24,15 @@ public class Cards : MonoBehaviour
     {
         gM.selectedPartyMember = partyMember;
         gM.card = this.gameObject;
+        gM.chargedPrice = price;
     }
+
+    public void checkMana()
+    {
+        if(gM.mana >= price)
+        {
+            gM.charge(price);
+        }
+    } 
+    
 }

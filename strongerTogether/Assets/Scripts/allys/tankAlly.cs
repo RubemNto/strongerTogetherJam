@@ -6,6 +6,7 @@ public class tankAlly : MonoBehaviour
     [Header("Movement Attributes")]
     public float moveSpeed;
     [Header("Attack Attributes")]
+    public AudioSource attackSound;
     public float damage;
     public float attackDistance = 5f;
     public float timeBetweenAttack;
@@ -15,6 +16,7 @@ public class tankAlly : MonoBehaviour
     {
         ally = GetComponent<ally>();
         timeToAttack = timeBetweenAttack;
+        attackSound = GameObject.Find("attackSound").GetComponent<AudioSource>();
     }
 
     // Update is called once per frame
@@ -44,6 +46,7 @@ public class tankAlly : MonoBehaviour
         if(timeToAttack <= 0)
         {
             ally.enemyTarget.GetComponent<enemies>().TakeDamage(damage);
+            attackSound.Play();
             timeToAttack = timeBetweenAttack;
         }
         else 

@@ -19,7 +19,7 @@ public class magic : MonoBehaviour
         transform.position = Vector2.MoveTowards(transform.position,target.transform.position,speed*Time.deltaTime);
     }
 
-    private void OnTriggerEnter2D(Collider2D other)
+    private void OnTriggerEnter(Collider other)
     {
         if(other.gameObject.tag == "enemy")
         {

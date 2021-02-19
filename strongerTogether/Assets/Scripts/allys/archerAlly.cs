@@ -8,6 +8,8 @@ public class archerAlly : MonoBehaviour
     private float timeOfShot;
     public float timeBetweenShots;
     public GameObject arrowPefab;
+    public AudioSource attackSound;
+
     public Transform arrowSpawnPosition;
     public float[] minMaxDamage = new float[2];
     public float[] minMaxSpeed = new float[2];
@@ -15,7 +17,8 @@ public class archerAlly : MonoBehaviour
     void Start()
     {
         ally = GetComponent<ally>();
-        timeOfShot = timeBetweenShots;        
+        timeOfShot = timeBetweenShots;  
+        attackSound = GameObject.Find("ArrowSound").GetComponent<AudioSource>();      
     }
     // Update is called once per frame
     void Update()
@@ -46,5 +49,6 @@ public class archerAlly : MonoBehaviour
         tempArrow.GetComponent<arrow>().SetSpeed(Random.Range(minMaxSpeed[0],minMaxSpeed[0]+1));
         //Set Arrow target
         tempArrow.GetComponent<arrow>().SetTarget(ally.enemyTarget);
+        attackSound.Play();
     }
 }

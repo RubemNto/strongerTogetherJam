@@ -5,6 +5,8 @@ using UnityEngine;
 public class mage : MonoBehaviour
 {
     [Header("Attack Attributes")]
+    public AudioSource attackSound;
+
     private ally ally;
     public float timeBetweenAttack;
     public float attackSpeed;
@@ -17,7 +19,8 @@ public class mage : MonoBehaviour
     void Start()
     {
         attackTime = timeBetweenAttack;
-        ally = GetComponent<ally>();                
+        ally = GetComponent<ally>();   
+        attackSound = GameObject.Find("MagicSound").GetComponent<AudioSource>();             
     }
 
     // Update is called once per frame
@@ -47,5 +50,6 @@ public class mage : MonoBehaviour
         tempMage.GetComponent<magic>().SetSpeed(attackSpeed);
         tempMage.GetComponent<magic>().SetDamage(attackDamage);
         tempMage.GetComponent<magic>().SetTarget(ally.enemyTarget);
+        attackSound.Play();
     }
 }

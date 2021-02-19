@@ -8,6 +8,8 @@ public class mouse : MonoBehaviour
 
     public Vector3 worldPosition;
     public partyManager pM;
+    public GameObject selectedAlly = null;
+    public GameObject selectedEnemy = null;
     //public GameObject thing;
 
     // Start is called before the first frame update
@@ -27,18 +29,43 @@ public class mouse : MonoBehaviour
         Debug.DrawRay(worldPosition,Vector3.forward*100,Color.red);
         if(Physics.Raycast(rayMouse.origin,rayMouse.direction,out hit,100f))
         {
-            if(hit.transform.parent.tag == "spawnPosition" && GetComponent<GameManager>().selectedPartyMember != null)
+            if(GetComponent<GameManager>().selectedPartyMember != null)
             {
-                if(Input.GetKeyDown(KeyCode.Mouse0))
+                if(Input.GetKeyDown(KeyCode.Mouse0) && GetComponent<GameManager>().mana >= GetComponent<GameManager>().chargedPrice)
                 {
-                    GameObject instantiatedPartyMember = Instantiate(GetComponent<GameManager>().selectedPartyMember,hit.transform.position + new Vector3(0,1,0),hit.transform.rotation);
-                    Destroy(GetComponent<GameManager>().card);
+                    GetComponent<GameManager>().charge(GetComponent<GameManager>().chargedPrice);
+                    GameObject instantiatedPartyMember = Instantiate(GetComponent<GameManager>().selectedPartyMember,hit.transform.position,hit.transform.rotation);
+                    //Destroy(GetComponent<GameManager>().card);
                     GetComponent<GameManager>().selectedPartyMember = null;
                     GetComponent<GameManager>().card = null;
                     pM.instantiatedPartyMember.Add(instantiatedPartyMember);
                 }
             }
+
+            if(hit.transform.tag == "ally")
+            {
+                Debug.Log("Found Ally");
+                if(Input.GetKeyDown(KeyCode.Mouse1))
+                {
+                    selectedAlly = hit.transform.gameObject;
+                    selectedEnemy = null;
+                }
+            }
+
+            if(hit.transform.tag == "enemy" && selectedAlly != null)
+            {
+                Debug.Log("Found Enemy");
+
+                if(Input.GetKeyDown(KeyCode.Mouse1))
+                {
+                    selectedEnemy = hit.transform.gameObject;
+                }
+            }
         }
-        //thing.transform.position = worldPosition;
+
+        if(selectedAlly != null && selectedEnemy != null)
+        {
+            selectedAlly.GetComponent<ally>().enemyTarget = selectedEnemy;
+        }        
     }
 }

@@ -127,9 +127,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7c86cff287b4fa24fb20fb8a18d2d03b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  partyMember: {fileID: 7710286179077555565, guid: 41530fdad00bf41479891812afa5b689,
+  partyMember: {fileID: 9045698771519267145, guid: d7079e086e73e074482ec28a8981d558,
     type: 3}
   gM: {fileID: 0}
+  price: 0
 --- !u!222 &2557078401920347236
 CanvasRenderer:
   m_ObjectHideFlags: 0

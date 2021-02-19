@@ -5,7 +5,8 @@ using UnityEngine;
 public class enemiesManager : MonoBehaviour
 {
     public List<GameObject> enemiesPrefabs = new List<GameObject>();
-    public List<Transform> enemiesSpawnPos = new List<Transform>();
+    public Transform spwanPos;
+    // public List<Transform> enemiesSpawnPos = new List<Transform>();
     public List<GameObject> enemiesOnScreen = new List<GameObject>();
     public int maxEnemiesOnScreen;
     public float timeToSpawn;
@@ -34,10 +35,10 @@ public class enemiesManager : MonoBehaviour
             if(spawnTime <= 0)
             {
                 //instantiate random enemy at random location
-                int randomPos = Random.Range(0,enemiesSpawnPos.Count);
+                // int randomPos = Random.Range(0,enemiesSpawnPos.Count);
                 int randomPrefab = Random.Range(0,enemiesPrefabs.Count);
 
-                enemiesOnScreen.Add(Instantiate(enemiesPrefabs[randomPrefab],enemiesSpawnPos[randomPos].position,enemiesSpawnPos[randomPos].rotation));
+                enemiesOnScreen.Add(Instantiate(enemiesPrefabs[randomPrefab],spwanPos.position,spwanPos.rotation));
                 EnemiesOnScreen++;
                 spawnTime = timeToSpawn;
             }else
