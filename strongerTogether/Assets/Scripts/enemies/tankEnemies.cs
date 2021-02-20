@@ -8,6 +8,8 @@ public class tankEnemies : MonoBehaviour
     public float damage;
     public float timeBetweenAttacks;
     private float attackTime;
+    [Header("Move Attributes")]
+    public float speed;
     private enemies tankData;
     // Start is called before the first frame update
     void Start()
@@ -17,24 +19,16 @@ public class tankEnemies : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
+    void FixedUpdate()
     {
-        if(tankData.moveSpeed <= 0 && tankData.player != null)
+        if(tankData.target != null)
         {
-            if(attackTime<=0)
-            {
-                Attack();
-                attackTime = timeBetweenAttacks;
-            }
-            else
-            {
-                attackTime-=Time.deltaTime;
-            }   
-        }     
+            transform.position = Vector2.MoveTowards(transform.position,tankData.target.transform.position - new Vector3(0,1,0),speed*Time.fixedDeltaTime);
+        }         
     }
 
     public void Attack()
     {
-        tankData.player.GetComponent<ally>().TakeDamage(damage);
+        tankData.target.GetComponent<ally>().TakeDamage(damage);
     }
 }

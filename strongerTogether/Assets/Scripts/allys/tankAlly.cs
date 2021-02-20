@@ -7,7 +7,7 @@ public class tankAlly : MonoBehaviour
     public float moveSpeed;
     [Header("Attack Attributes")]
     public AudioSource attackSound;
-    public float damage;
+    public int damage;
     public float attackDistance = 5f;
     public float timeBetweenAttack;
     private float timeToAttack;

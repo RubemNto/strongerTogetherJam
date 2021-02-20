@@ -10,7 +10,7 @@ public class mage : MonoBehaviour
     private ally ally;
     public float timeBetweenAttack;
     public float attackSpeed;
-    public float attackDamage;
+    public int attackDamage;
     private float attackTime;
     public GameObject magePower;
     public Transform mageSpawnPos;

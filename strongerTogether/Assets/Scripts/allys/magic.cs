@@ -5,7 +5,7 @@ using UnityEngine;
 public class magic : MonoBehaviour
 {
     private float speed;
-    private float damage;
+    private int damage;
     private GameObject target;
     
     // Update is called once per frame
@@ -32,7 +32,7 @@ public class magic : MonoBehaviour
     {
         speed = Speed;
     }
-    public void SetDamage(float Damage)
+    public void SetDamage(int Damage)
     {
         damage = Damage;
     }

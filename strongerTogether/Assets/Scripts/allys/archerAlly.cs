@@ -11,8 +11,8 @@ public class archerAlly : MonoBehaviour
     public AudioSource attackSound;
 
     public Transform arrowSpawnPosition;
-    public float[] minMaxDamage = new float[2];
-    public float[] minMaxSpeed = new float[2];
+    public int Damage;
+    public float speed;
     // Start is called before the first frame update
     void Start()
     {
@@ -43,10 +43,12 @@ public class archerAlly : MonoBehaviour
     public void shootArrow()
     {
         GameObject tempArrow = Instantiate(arrowPefab,arrowSpawnPosition.position,arrowSpawnPosition.rotation);
+        //Set Arrow origin
+        tempArrow.GetComponent<arrow>().setOrigin('A');
         //Set Arrow damage
-        tempArrow.GetComponent<arrow>().SetDamage(Random.Range(minMaxDamage[0],minMaxDamage[0]+1));
+        tempArrow.GetComponent<arrow>().SetDamage(Damage);
         //Set Arrow speed
-        tempArrow.GetComponent<arrow>().SetSpeed(Random.Range(minMaxSpeed[0],minMaxSpeed[0]+1));
+        tempArrow.GetComponent<arrow>().SetSpeed(speed);
         //Set Arrow target
         tempArrow.GetComponent<arrow>().SetTarget(ally.enemyTarget);
         attackSound.Play();
