@@ -78,7 +78,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   target: {fileID: 0}
-  health: 10
+  health: 50
   partyManager: {fileID: 0}
 --- !u!136 &2657274780373637124
 CapsuleCollider:
@@ -93,7 +93,7 @@ CapsuleCollider:
   m_Radius: 0.5
   m_Height: 1.7817225
   m_Direction: 1
-  m_Center: {x: 0, y: 1, z: 0}
+  m_Center: {x: 0, y: 0.8, z: 0}
 --- !u!54 &2183898991846450033
 Rigidbody:
   m_ObjectHideFlags: 0

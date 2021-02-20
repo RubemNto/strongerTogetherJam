@@ -52,7 +52,7 @@ MonoBehaviour:
     type: 3}
   attackSound: {fileID: 0}
   arrowSpawnPosition: {fileID: 1007987049368347148}
-  Damage: 10
+  Damage: 2
   speed: 5
 --- !u!114 &1703599165344013502
 MonoBehaviour:
@@ -66,11 +66,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5c1bf5a884c90b14f9988b98e4831ee4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 100
+  health: 25
   aliveTime: 25
   enemyTarget: {fileID: 0}
   enemiesManager: {fileID: 0}
   partyManager: {fileID: 0}
+  canAttack: 1
+  fireDamageIntake: 0
+  burn: 0
+  stunTime: 0
 --- !u!54 &7350816783735618344
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -100,7 +104,7 @@ CapsuleCollider:
   m_Radius: 0.5
   m_Height: 1.604835
   m_Direction: 1
-  m_Center: {x: 0, y: 1, z: 0}
+  m_Center: {x: 0, y: 0.8, z: 0}
 --- !u!1 &5381201604618337348
 GameObject:
   m_ObjectHideFlags: 0

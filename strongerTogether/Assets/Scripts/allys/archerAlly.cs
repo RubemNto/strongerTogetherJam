@@ -49,6 +49,8 @@ public class archerAlly : MonoBehaviour
         tempArrow.GetComponent<arrow>().SetDamage(Damage);
         //Set Arrow speed
         tempArrow.GetComponent<arrow>().SetSpeed(speed);
+        tempArrow.GetComponent<arrow>().setOrigin('A');
+
         //Set Arrow target
         tempArrow.GetComponent<arrow>().SetTarget(ally.enemyTarget);
         attackSound.Play();

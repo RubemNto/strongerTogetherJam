@@ -11,14 +11,20 @@ public class ice : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if(target == null)
+        {
+            Destroy(gameObject);
+        }         
         transform.right = (target.transform.position - transform.position).normalized;
         transform.position = Vector2.MoveTowards(transform.position,target.transform.position,speed*Time.deltaTime);
+        
     }
 
     private void OnTriggerEnter(Collider other)
     {
         if(other.gameObject.tag == "ally" && other.gameObject.tag == "Player")
         {
+            Debug.Log("here");
             target.GetComponent<ally>().IceHit();
             Destroy(gameObject);
         }

@@ -1,6 +1,5 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
+using UnityEngine.SceneManagement;
 using TMPro;
 
 public class GameManager : MonoBehaviour
@@ -8,7 +7,6 @@ public class GameManager : MonoBehaviour
 
     public GameObject selectedPartyMember;
     public GameObject card;
-    public float GameTime;
     public int playerHealth;
     public int mana;
     // public GameObject middle;
@@ -21,14 +19,11 @@ public class GameManager : MonoBehaviour
     void Update() 
     {
         health.text = "Health: " + playerHealth.ToString();
-        magic.text =  "Magic: " + mana.ToString(); 
-        if(GameTime>0)
+        magic.text =  "Magic: " + mana.ToString();
+        if(playerHealth<=0)
         {
-            GameTime-=Time.deltaTime;       
-        }else if(GameTime<=0)
-        {
-            GameTime = 0;
-        }
+            SceneManager.LoadScene(1);
+        }         
     } 
 
     // void Update() {

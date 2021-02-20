@@ -31,7 +31,7 @@ public class arrowEnemies : MonoBehaviour
     {
         if(archerData.target != null)
         {
-            Debug.Log(Vector2.Distance(transform.position,archerData.target.transform.position).ToString());
+//            Debug.Log(Vector2.Distance(transform.position,archerData.target.transform.position).ToString());
             if(Vector2.Distance(transform.position,archerData.target.transform.position) <= attackDistance)
             {                
                 if(timeOfShot<=0)

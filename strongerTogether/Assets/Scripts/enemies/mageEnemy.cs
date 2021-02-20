@@ -27,7 +27,7 @@ public class mageEnemy : MonoBehaviour
     {
         if(enemies.target != null)
         {
-            Debug.Log(Vector2.Distance(transform.position,enemies.target.transform.position).ToString());
+//            Debug.Log(Vector2.Distance(transform.position,enemies.target.transform.position).ToString());
             if(Vector2.Distance(transform.position,enemies.target.transform.position) <= attackDistance)
             {                
                 if(attackTime<=0)
@@ -51,9 +51,19 @@ public class mageEnemy : MonoBehaviour
     void Attack()
     {
         GameObject tempMage = Instantiate(magePower,mageSpawnPos.position,mageSpawnPos.rotation);
-        tempMage.GetComponent<magic>().SetSpeed(attackSpeed);
-        tempMage.GetComponent<magic>().SetDamage(attackDamage);
-        tempMage.GetComponent<magic>().SetTarget(enemies.target);
+        // if(gameObject.transform.name != "enemyMage 1(Clone)")
+        // {
+            tempMage.GetComponent<magic>().SetSpeed(attackSpeed);
+            tempMage.GetComponent<magic>().SetDamage(attackDamage);
+            tempMage.GetComponent<magic>().SetTarget(enemies.target);
+            tempMage.GetComponent<magic>().setOrigin('E');
+        
+        // }else if(gameObject.transform.name == "enemyMage 1(Clone)")
+        // {
+        //     tempMage.GetComponent<ice>().SetSpeed(attackSpeed);
+        //     tempMage.GetComponent<ice>().SetDamage(attackDamage);
+        //     tempMage.GetComponent<ice>().SetTarget(enemies.target);
+        // }
         attackSound.Play();
     }
 }

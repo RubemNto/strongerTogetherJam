@@ -42,7 +42,7 @@ GameObject:
   - component: {fileID: 5706685719164340884}
   - component: {fileID: 2657274780373637124}
   - component: {fileID: 2183898991846450033}
-  - component: {fileID: 5783293044460594862}
+  - component: {fileID: -3817941827685087582}
   m_Layer: 0
   m_Name: enemyMage 1
   m_TagString: enemy
@@ -78,7 +78,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   target: {fileID: 0}
-  health: 10
+  health: 50
   partyManager: {fileID: 0}
 --- !u!136 &2657274780373637124
 CapsuleCollider:
@@ -93,7 +93,7 @@ CapsuleCollider:
   m_Radius: 0.5
   m_Height: 1.7817225
   m_Direction: 1
-  m_Center: {x: 0, y: 1, z: 0}
+  m_Center: {x: 0, y: 0.8, z: 0}
 --- !u!54 &2183898991846450033
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -110,7 +110,7 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 112
   m_CollisionDetection: 0
---- !u!114 &5783293044460594862
+--- !u!114 &-3817941827685087582
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -119,18 +119,18 @@ MonoBehaviour:
   m_GameObject: {fileID: 4151167415684721505}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b4ba9b1c5e129004daf1c3d817a48ecb, type: 3}
+  m_Script: {fileID: 11500000, guid: 4bc132030187c014fbd2ea7899c019bb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  damage: 10
+  arrowSpeed: 5
   attackDistance: 10
-  speed: 10
-  timeBetweenAttack: 1
-  attackSpeed: 5
-  attackDamage: 20
-  magePower: {fileID: 9169276058777294346, guid: 2a3759fd2c5065441a219fa53a8628bd,
+  timeBetweenShots: 3
+  arrowPefab: {fileID: 9169276058777294346, guid: 4c9e7dba67ea980489d2a0b5073ec226,
     type: 3}
-  mageSpawnPos: {fileID: 473479013697827984}
   attackSound: {fileID: 0}
+  arrowSpawnPosition: {fileID: 473479013697827984}
+  speed: 3
 --- !u!1 &7072055743358425468
 GameObject:
   m_ObjectHideFlags: 0

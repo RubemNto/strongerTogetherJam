@@ -23,7 +23,7 @@ public class tankEnemies : MonoBehaviour
     {
         if(tankData.target != null)
         {
-            transform.position = Vector2.MoveTowards(transform.position,tankData.target.transform.position - new Vector3(0,1,0),speed*Time.fixedDeltaTime);
+            transform.position = Vector2.MoveTowards(transform.position,tankData.target.transform.position + new Vector3(0,0.2f,0),speed*Time.fixedDeltaTime);
         }         
     }
 

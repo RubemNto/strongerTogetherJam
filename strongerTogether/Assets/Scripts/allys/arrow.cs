@@ -32,6 +32,7 @@ public class arrow : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
+        
         if(origin == 'A')
         {
             if(other.gameObject.tag == "enemy")

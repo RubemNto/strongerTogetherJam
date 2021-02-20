@@ -8,11 +8,13 @@ public class enemiesManager : MonoBehaviour
     public Transform spwanPos;
     // public List<Transform> enemiesSpawnPos = new List<Transform>();
     public List<GameObject> enemiesOnScreen = new List<GameObject>();
+    public GameObject boss;
     public GameManager GameManager;
     public int maxEnemiesOnScreen;
     public float timeToSpawn;
     float spawnTime;
-    int EnemiesOnScreen; 
+    int EnemiesOnScreen;
+    int bossNumbers = 0; 
 
     // Start is called before the first frame update
     void Start()
@@ -24,8 +26,7 @@ public class enemiesManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(GameManager.GameTime > 0)
-        {
+        
             for (int i = 0; i < enemiesOnScreen.Count; i++)
             {
                 if(enemiesOnScreen[i] == null)
@@ -50,6 +51,6 @@ public class enemiesManager : MonoBehaviour
                     spawnTime-=Time.deltaTime;
                 }        
             }
-        }
+        
     }
 }

@@ -79,6 +79,7 @@ public class enemies : MonoBehaviour
         health -= damageIntake;
         if(health <= 0)
         {
+            GameObject.Find("GameManager").GetComponent<GameManager>().mana += 10;
             Destroy(gameObject);
         }
     }
