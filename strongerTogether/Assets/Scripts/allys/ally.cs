@@ -10,73 +10,53 @@ public class ally : MonoBehaviour
     public GameObject enemyTarget = null;
     public enemiesManager enemiesManager;
     public partyManager partyManager;
+    public bool canAttack = true;
+    public float fireDamageIntake;
+    public bool burn;
+    public float stunTime;
+    private float stunTimeCounter;
     // Start is called before the first frame update
     void Start()
     {
+        canAttack = true;
         partyManager = GameObject.Find("partyManager").GetComponent<partyManager>();
         if(gameObject.transform.tag == "ally")
         {
             Destroy(gameObject,aliveTime);
         }
+        stunTimeCounter = stunTime;
         // enemiesManager = GameObject.Find("enemiesManager").GetComponent<enemiesManager>();
     }
-    
+    void Update() 
+    {
+        if(canAttack == false)
+        {
+            if(stunTimeCounter >= 0)
+            {
+                stunTimeCounter-=Time.deltaTime;
+            }
+            else
+            {
+                stunTimeCounter = stunTime;
+                canAttack = true;
+            }
+        }
 
-    // Update is called once per frame
-    // void Update()
-    // {
-    //     // if(enemyTarget == null && enemiesManager.enemiesOnScreen.Count != 0)
-    //     // {            
-    //     //     List<GameObject> allyTargets = new List<GameObject>();
-    //     //     List<GameObject> availableTargets = new List<GameObject>();
-    //     //     foreach (GameObject aly in partyManager.instantiatedPartyMember)
-    //     //     {
-    //     //         allyTargets.Add(aly.GetComponent<ally>().enemyTarget);
-    //     //     }
-
-    //     //     for (int i = 0; i < enemiesManager.enemiesOnScreen.Count; i++)
-    //     //     {
-    //     //         bool found = false;
-    //     //         for (int b = 0; b < allyTargets.Count; b++)
-    //     //         {
-    //     //             if(enemiesManager.enemiesOnScreen[i] == allyTargets[b])
-    //     //             {
-    //     //                 found = true;
-    //     //                 break;
-    //     //             }else
-    //     //             {
-    //     //                 found = false;
-    //     //             }   
-    //     //         }
-    //     //         if(found == false)
-    //     //         {
-    //     //             availableTargets.Add(enemiesManager.enemiesOnScreen[i]);
-    //     //         }                
-    //     //     }
-            
-    //     //     float[] distances = new float[availableTargets.Count];
-
-    //     //     for (int i = 0; i < distances.Length; i++)
-    //     //     {
-    //     //         distances[i] = Vector2.Distance(transform.position,availableTargets[i].transform.position);
-    //     //     }
-
-    //     //     float[] tempDistances = distances;
-    //     //     Array.Sort(distances);
-    //     //     for (int i = 0; i < distances.Length; i++)
-    //     //     {
-    //     //         if(distances[0] == tempDistances[i])
-    //     //         {
-    //     //             enemyTarget = availableTargets[i];
-    //     //             break;
-    //     //         }
-    //     //     }
-    //     // }else if(enemiesManager.enemiesOnScreen.Count == 0)
-    //     // {
-    //     //     enemyTarget = null;
-    //     // }
+        if(burn == true)
+        {
+            if(stunTimeCounter >= 0)
+            {
+                FireHit(fireDamageIntake);
+                stunTimeCounter-=Time.deltaTime;
+            }
+            else
+            {
+                stunTimeCounter = stunTime;
+                burn = false;
+            }            
+        }
         
-    // }
+    }
     public void TakeDamage(float damageIntake)
     {
         health-=damageIntake;
@@ -84,5 +64,15 @@ public class ally : MonoBehaviour
         {
             Destroy(gameObject);
         }
-    } 
+    }
+
+    public void IceHit()
+    {
+        canAttack = false;
+    }
+
+    public void FireHit(float Damage)
+    {        
+        health -= Damage;
+    }  
 }

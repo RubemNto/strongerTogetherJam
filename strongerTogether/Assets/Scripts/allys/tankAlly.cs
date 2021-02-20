@@ -22,7 +22,7 @@ public class tankAlly : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(ally.enemyTarget != null)
+        if(ally.enemyTarget != null && ally.canAttack == true)
         {
             float distanceToTarget = Vector2.Distance(transform.position,ally.enemyTarget.transform.position);
 

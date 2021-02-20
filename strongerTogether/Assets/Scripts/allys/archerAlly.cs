@@ -23,7 +23,7 @@ public class archerAlly : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(ally.enemyTarget != null)
+        if(ally.enemyTarget != null && ally.canAttack == true)
         {
             //shoot arrow
             if(timeOfShot <= 0)

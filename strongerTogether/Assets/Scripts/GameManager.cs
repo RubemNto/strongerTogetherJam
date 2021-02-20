@@ -8,6 +8,7 @@ public class GameManager : MonoBehaviour
 
     public GameObject selectedPartyMember;
     public GameObject card;
+    public float GameTime;
     public int playerHealth;
     public int mana;
     // public GameObject middle;
@@ -20,7 +21,14 @@ public class GameManager : MonoBehaviour
     void Update() 
     {
         health.text = "Health: " + playerHealth.ToString();
-        magic.text =  "Magic: " + mana.ToString();        
+        magic.text =  "Magic: " + mana.ToString(); 
+        if(GameTime>0)
+        {
+            GameTime-=Time.deltaTime;       
+        }else if(GameTime<=0)
+        {
+            GameTime = 0;
+        }
     } 
 
     // void Update() {

@@ -26,7 +26,7 @@ public class mage : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(ally.enemyTarget != null)
+        if(ally.enemyTarget != null && ally.canAttack == true)
         {        
             if(attackTime <= 0)
             {

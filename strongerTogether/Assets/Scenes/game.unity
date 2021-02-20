@@ -187,8 +187,9 @@ MonoBehaviour:
   - {fileID: 4151167415684721505, guid: d588d62873d97394ebe3368755605eef, type: 3}
   spwanPos: {fileID: 1087303048}
   enemiesOnScreen: []
+  GameManager: {fileID: 0}
   maxEnemiesOnScreen: 10
-  timeToSpawn: 5
+  timeToSpawn: 1
 --- !u!4 &80767092
 Transform:
   m_ObjectHideFlags: 0
@@ -601,6 +602,10 @@ MonoBehaviour:
   enemyTarget: {fileID: 0}
   enemiesManager: {fileID: 0}
   partyManager: {fileID: 0}
+  canAttack: 1
+  fireDamageIntake: 0
+  burn: 0
+  stunTime: 0
 --- !u!136 &495654930
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -1967,6 +1972,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   selectedPartyMember: {fileID: 0}
   card: {fileID: 0}
+  GameTime: 5
   playerHealth: 100
   mana: 100
   chargedPrice: 0
