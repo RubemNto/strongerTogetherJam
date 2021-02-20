@@ -6,6 +6,7 @@ using System;
 public class ally : MonoBehaviour
 {
     public float health;
+    public float aliveTime;
     public GameObject enemyTarget = null;
     public enemiesManager enemiesManager;
     public partyManager partyManager;
@@ -13,8 +14,13 @@ public class ally : MonoBehaviour
     void Start()
     {
         partyManager = GameObject.Find("partyManager").GetComponent<partyManager>();
+        if(gameObject.transform.tag == "ally")
+        {
+            Destroy(gameObject,aliveTime);
+        }
         // enemiesManager = GameObject.Find("enemiesManager").GetComponent<enemiesManager>();
     }
+    
 
     // Update is called once per frame
     // void Update()

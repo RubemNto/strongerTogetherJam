@@ -169,6 +169,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   health: 100
+  aliveTime: 25
   enemyTarget: {fileID: 0}
   enemiesManager: {fileID: 0}
   partyManager: {fileID: 0}

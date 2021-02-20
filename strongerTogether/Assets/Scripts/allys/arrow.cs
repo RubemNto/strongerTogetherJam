@@ -4,15 +4,30 @@ using UnityEngine;
 
 public class arrow : MonoBehaviour
 {
-    private GameObject target;
+    public GameObject target;
     private float speed;
     private int damage;
     private char origin;
     
     private void Update()
     {
-        transform.right = (target.transform.position - transform.position).normalized;
-        transform.position = Vector2.MoveTowards(transform.position,target.transform.position+new Vector3(0,0.5f,0),speed*Time.deltaTime);
+        //transform.right = (target.transform.position - transform.position).normalized;
+        if(target != null)
+        {
+            transform.position = Vector2.MoveTowards(transform.position,target.transform.position+new Vector3(0,0.5f,0),speed*Time.deltaTime);
+
+            if(origin =='A')
+            transform.rotation = Quaternion.Euler(0,0,0);
+            else
+            {
+                transform.rotation = Quaternion.Euler(0,0,180);
+            }
+        }
+        else
+        {
+            Destroy(gameObject);
+        }
+        
     }
 
     private void OnTriggerEnter(Collider other)

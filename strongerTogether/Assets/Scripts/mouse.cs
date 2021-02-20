@@ -5,7 +5,6 @@ using UnityEngine.UI;
 
 public class mouse : MonoBehaviour
 {
-
     public Vector3 worldPosition;
     public partyManager pM;
     public GameObject selectedAlly = null;
@@ -26,7 +25,7 @@ public class mouse : MonoBehaviour
         worldPosition = Camera.main.ScreenToWorldPoint(mousePos);
         Ray rayMouse = new Ray(worldPosition,Vector3.forward);
         RaycastHit hit;
-        Debug.DrawRay(worldPosition,Vector3.forward*100,Color.red);
+//        Debug.DrawRay(worldPosition,Vector3.forward*100,Color.red);
         if(Physics.Raycast(rayMouse.origin,rayMouse.direction,out hit,100f))
         {
             if(GetComponent<GameManager>().selectedPartyMember != null)
@@ -44,7 +43,7 @@ public class mouse : MonoBehaviour
 
             if(hit.transform.tag == "ally")
             {
-                Debug.Log("Found Ally");
+//                Debug.Log("Found Ally");
                 if(Input.GetKeyDown(KeyCode.Mouse1))
                 {
                     selectedAlly = hit.transform.gameObject;
@@ -54,7 +53,7 @@ public class mouse : MonoBehaviour
 
             if(hit.transform.tag == "enemy" && selectedAlly != null)
             {
-                Debug.Log("Found Enemy");
+//                Debug.Log("Found Enemy");
 
                 if(Input.GetKeyDown(KeyCode.Mouse1))
                 {

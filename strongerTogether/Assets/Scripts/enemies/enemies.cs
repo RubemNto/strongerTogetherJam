@@ -18,8 +18,7 @@ public class enemies : MonoBehaviour
 
     // Update is called once per frame
     void Update()
-    {
-        
+    {        
         if(partyManager.instantiatedPartyMember.Count != 0)
         {            
             List<GameObject> enemyTargets = new List<GameObject>();
